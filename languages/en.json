@@ -1,0 +1,164 @@
+{
+  "PO": {
+    "Profiles": {
+      "low": {
+        "Label": "Low",
+        "Description": "For very old computers. Minimal visual effects, capped at 10 FPS."
+      },
+      "medium": {
+        "Label": "Medium",
+        "Description": "For average computers. Balanced quality and performance, capped at 30 FPS."
+      },
+      "high": {
+        "Label": "High",
+        "Description": "For modern computers. Maximum quality, capped at 60 FPS."
+      },
+      "custom": {
+        "Label": "Custom"
+      }
+    },
+    "ProfileDialog": {
+      "Title": "Performance Profile",
+      "Intro": "How powerful is the computer you are playing on? Pick the option that best describes it and the graphics settings will be adjusted automatically.",
+      "Current": "Current profile:",
+      "CurrentBadge": "Current",
+      "RecommendedBadge": "Recommended",
+      "Recommendation": "Your average framerate over the last two minutes was {fps} FPS. Switching to the {profile} profile should make the game smoother.",
+      "NotNow": "Not Now",
+      "NeverShow": "Don't Show Again",
+      "KeepCurrent": "Keep My Current Settings"
+    },
+    "GMPanel": {
+      "Title": "Performance Optimizer — Player Performance",
+      "User": "User",
+      "Status": "Profile",
+      "Actions": "Actions",
+      "SendAll": "Send to All",
+      "Refresh": "Refresh",
+      "Offline": "Offline",
+      "You": "You",
+      "Resend": "Send Dialog",
+      "NoUsers": "There are no other users in this world.",
+      "SetProfileTooltip": "Apply this profile on the player's client",
+      "UnknownTooltip": "This user's current settings have not been reported yet",
+      "CustomTooltip": "This user's settings do not match any of the standard profiles.",
+      "ProfileSent": "The {profile} profile was applied on {user}'s client.",
+      "ProfileFailed": "Could not apply the profile on {user}'s client.",
+      "DialogSent": "The profile dialog was sent to {user}.",
+      "DialogFailed": "Could not send the profile dialog to {user}.",
+      "DialogSentAll": "The profile dialog was sent to {count} connected user(s).",
+      "Benchmark": {
+        "Heading": "Benchmark",
+        "Hint": "Activate a standardized stress-test scene for every connected player, then watch their framerate live in the FPS monitor.",
+        "Activate": "Activate Benchmark Scene",
+        "Monitor": "Open FPS Monitor"
+      }
+    },
+    "Monitor": {
+      "Title": "Benchmark FPS Monitor",
+      "Hint": "Framerate reported by each connected client while on the benchmark scene, updated every 5 seconds.",
+      "Clear": "Clear Data",
+      "Empty": "No FPS data yet. Players report automatically while viewing the benchmark scene.",
+      "Fps": "FPS"
+    },
+    "Benchmark": {
+      "SceneCreated": "The benchmark scene has been created.",
+      "Activated": "The benchmark scene is now active for all players."
+    },
+    "Notifications": {
+      "ProfileApplied": "Performance profile changed to {profile}."
+    },
+    "ProfileDefaults": {
+      "Title": "Profile Defaults",
+      "Intro": "Define the settings each performance profile applies when a player picks it. Changes affect every future profile application in this world.",
+      "CoreSection": "Foundry Graphics Settings",
+      "DsnSection": "Dice So Nice — 3D Dice Performance",
+      "DsnHint": "These options drive the rendering cost of the 3D dice. MSAA antialiasing needs WebGL2; clients without it automatically fall back to SMAA.",
+      "DsnInactive": "Dice So Nice is not active in this world. Its performance options will appear here, and be managed by the profiles, once it is enabled.",
+      "Save": "Save Profiles",
+      "Reset": "Reset to Default",
+      "ResetTitle": "Reset Profile Defaults",
+      "ResetContent": "Restore all three profiles to their default settings? Your customizations will be lost.",
+      "Saved": "Profile defaults saved.",
+      "ResetDone": "Profile defaults restored.",
+      "Tabs": {
+        "core": "Foundry",
+        "dsn": "Dice So Nice"
+      },
+      "Hints": {
+        "core": {
+          "performanceMode": "Overall canvas rendering preset. Higher modes enable more visual features at greater GPU cost.",
+          "maxFPS": "Upper limit on frames drawn per second. Lower caps ease the load on the GPU and CPU and reduce heat.",
+          "pixelRatioResolutionScaling": "Renders the canvas at the display's native pixel density for sharper visuals, at a higher GPU cost. Disable on weak hardware.",
+          "photosensitiveMode": "Suppresses flashing and strobing effects to lower the risk of triggering photosensitive reactions.",
+          "mipmap": "Precomputes scaled-down copies of textures for smoother, cheaper rendering when zoomed out. Uses extra video memory.",
+          "visionAnimation": "Animates changes to token vision and fog of war. Disable to cut rendering work.",
+          "lightAnimation": "Animates dynamic light effects such as flicker and pulse. Disable to save GPU on scenes with many lights."
+        },
+        "dsn": {
+          "imageQuality": "Overall texture and rendering resolution of the 3D dice.",
+          "shadowQuality": "Resolution of the shadows the dice cast. Higher settings cost more GPU.",
+          "antialiasing": "Edge-smoothing technique for the dice. MSAA looks best but needs WebGL2; SMAA is a lighter fallback.",
+          "bumpMapping": "Adds surface relief detail to the dice faces. Slightly higher GPU cost.",
+          "glow": "Enables glow and bloom effects around emissive dice. More GPU intensive.",
+          "useHighDPI": "Renders the dice at high-DPI resolution on retina displays for sharper edges, at a higher cost.",
+          "persistentDiceOutlines": "Keeps outline rendering on the dice after they settle. Small ongoing rendering cost.",
+          "advancedGlass": "Uses a costlier physically based material for glass and translucent dice."
+        }
+      },
+      "Fields": {
+        "core": {
+          "performanceMode": "Performance Mode",
+          "maxFPS": "Maximum FPS",
+          "pixelRatioResolutionScaling": "Hardware Pixel Scaling",
+          "photosensitiveMode": "Photosensitive Mode",
+          "mipmap": "Texture Mipmapping",
+          "visionAnimation": "Vision Animation",
+          "lightAnimation": "Light Animation"
+        },
+        "dsn": {
+          "imageQuality": "Image Quality",
+          "shadowQuality": "Shadow Quality",
+          "antialiasing": "Antialiasing",
+          "bumpMapping": "Bump Mapping",
+          "glow": "Glow Effects",
+          "useHighDPI": "High DPI Rendering",
+          "persistentDiceOutlines": "Persistent Dice Outlines",
+          "advancedGlass": "Advanced Glass Material"
+        }
+      },
+      "Choices": {
+        "none": "None",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "smaa": "SMAA (fast)",
+        "msaa": "MSAA (quality)",
+        "pmLow": "Low",
+        "pmMed": "Medium",
+        "pmHigh": "High",
+        "pmMax": "Maximum"
+      }
+    },
+    "Settings": {
+      "GMPanel": {
+        "Name": "Player Performance Panel",
+        "Label": "Open Panel",
+        "Hint": "Review and change the performance profile of every player, resend the profile dialog, and run the benchmark."
+      },
+      "ProfileDefaults": {
+        "Name": "Profile Defaults",
+        "Label": "Edit Profiles",
+        "Hint": "Customize the settings applied by the Low, Medium and High performance profiles, including Dice So Nice performance options when that module is active."
+      },
+      "AutoFpsCheck": {
+        "Name": "Automatic FPS Detection",
+        "Hint": "Periodically measure your framerate and recommend a lighter profile when the game runs consistently slow."
+      },
+      "FpsNeverShow": {
+        "Name": "Mute FPS Recommendations",
+        "Hint": "Never show the low-FPS profile recommendation on this client."
+      }
+    }
+  }
+}

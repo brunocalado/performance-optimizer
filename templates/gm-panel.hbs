@@ -1,0 +1,69 @@
+<div class="po-gm-panel-content">
+  <div class="po-toolbar">
+    <button type="button" data-action="sendAll">
+      <i class="fa-solid fa-paper-plane" inert></i>{{localize "PO.GMPanel.SendAll"}}
+    </button>
+    <button type="button" data-action="refresh" {{#if loading}}disabled{{/if}}>
+      <i class="fa-solid fa-arrows-rotate{{#if loading}} fa-spin{{/if}}" inert></i>{{localize "PO.GMPanel.Refresh"}}
+    </button>
+  </div>
+
+  <table class="po-user-table">
+    <thead>
+      <tr>
+        <th>{{localize "PO.GMPanel.User"}}</th>
+        <th>{{localize "PO.GMPanel.Status"}}</th>
+        <th>{{localize "PO.GMPanel.Actions"}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+      <tr class="{{#unless active}}offline{{/unless}}">
+        <td class="po-user-name">
+          <span class="po-chip" style="background: {{color}}"></span>
+          <span>{{name}}</span>
+          {{#if isGM}}<i class="fa-solid fa-crown" inert data-tooltip="{{localize 'USER.RoleGamemaster'}}"></i>{{/if}}
+          {{#if isSelf}}<span class="po-tag">{{localize "PO.GMPanel.You"}}</span>{{/if}}
+          {{#unless active}}<span class="po-tag">{{localize "PO.GMPanel.Offline"}}</span>{{/unless}}
+        </td>
+        <td class="po-user-profiles">
+          {{#if active}}
+            {{#each profiles}}
+            <button type="button" class="po-pill{{#if current}} current{{/if}}"
+                    data-action="setProfile" data-user-id="{{../id}}" data-profile="{{key}}"
+                    data-tooltip="{{localize 'PO.GMPanel.SetProfileTooltip'}}">{{label}}</button>
+            {{/each}}
+            {{#if custom}}<span class="po-tag highlight" data-tooltip="{{localize 'PO.GMPanel.CustomTooltip'}}">{{localize "PO.Profiles.custom.Label"}}</span>{{/if}}
+            {{#unless known}}<i class="fa-solid fa-circle-question po-unknown" inert
+                               data-tooltip="{{localize 'PO.GMPanel.UnknownTooltip'}}"></i>{{/unless}}
+          {{else}}
+            <span class="po-unknown">—</span>
+          {{/if}}
+        </td>
+        <td class="po-user-actions">
+          {{#if active}}
+          <button type="button" data-action="resendDialog" data-user-id="{{id}}">
+            <i class="fa-solid fa-paper-plane" inert></i>{{localize "PO.GMPanel.Resend"}}
+          </button>
+          {{/if}}
+        </td>
+      </tr>
+      {{else}}
+      <tr><td colspan="3" class="po-empty">{{localize "PO.GMPanel.NoUsers"}}</td></tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <fieldset class="po-benchmark-section">
+    <legend>{{localize "PO.GMPanel.Benchmark.Heading"}}</legend>
+    <p class="hint">{{localize "PO.GMPanel.Benchmark.Hint"}}</p>
+    <div class="po-toolbar">
+      <button type="button" data-action="activateBenchmark">
+        <i class="fa-solid fa-map" inert></i>{{localize "PO.GMPanel.Benchmark.Activate"}}
+      </button>
+      <button type="button" data-action="openMonitor">
+        <i class="fa-solid fa-chart-line" inert></i>{{localize "PO.GMPanel.Benchmark.Monitor"}}
+      </button>
+    </div>
+  </fieldset>
+</div>

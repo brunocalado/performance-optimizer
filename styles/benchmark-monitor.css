@@ -1,0 +1,73 @@
+/*!
+ * Performance Optimizer
+ * Copyright (c) 2026 https://github.com/brunocalado
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3.
+ */
+
+.performance-optimizer.po-benchmark-monitor {
+
+  .po-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    list-style: none;
+    margin: 0.75rem 0;
+    padding: 0;
+
+    > li {
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+  }
+
+  .po-legend-fps {
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .po-chart {
+    position: relative;
+
+    > canvas {
+      display: block;
+      width: 100%;
+    }
+
+    > .po-empty {
+      position: absolute;
+      inset: 45% 0 auto 0;
+    }
+  }
+
+  .po-chart-tooltip {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    min-width: 130px;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--performance-optimizer-border);
+    border-radius: 4px;
+    background: var(--color-cool-5, #1b1d24);
+    font-size: var(--font-size-12, 0.75rem);
+
+    > header {
+      color: var(--color-text-secondary);
+      margin-bottom: 0.2rem;
+      border: none;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+  }
+
+  .po-chart-tooltip strong {
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+  }
+}

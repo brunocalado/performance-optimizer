@@ -1,0 +1,81 @@
+/*!
+ * Performance Optimizer
+ * Copyright (c) 2026 https://github.com/brunocalado
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3.
+ */
+
+.performance-optimizer.po-gm-panel {
+
+  .po-user-table {
+    margin: 0.75rem 0;
+
+    td {
+      vertical-align: middle;
+    }
+
+    tr.offline {
+      opacity: 0.6;
+    }
+  }
+
+  .po-user-name {
+    > .po-chip {
+      margin-right: 0.4em;
+    }
+
+    > i {
+      margin-left: 0.3em;
+      color: var(--color-text-secondary);
+    }
+
+    > .po-tag {
+      margin-left: 0.4em;
+    }
+  }
+
+  .po-user-profiles {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .po-pill {
+    height: auto;
+    width: auto;
+    flex: none;
+    padding: 0.1rem 0.6rem;
+    font-size: var(--font-size-12, 0.75rem);
+    border-radius: 999px;
+    opacity: 0.75;
+
+    &.current {
+      opacity: 1;
+      font-weight: bold;
+      color: var(--color-light-1, #f0f0e0);
+      background: var(--performance-optimizer-accent);
+      border-color: var(--performance-optimizer-accent);
+      box-shadow: 0 0 0 2px var(--performance-optimizer-accent),
+                  0 0 8px var(--performance-optimizer-accent);
+    }
+  }
+
+  .po-user-actions button {
+    width: auto;
+    font-size: var(--font-size-12, 0.75rem);
+  }
+
+  .po-unknown {
+    color: var(--color-text-secondary);
+  }
+
+  .po-benchmark-section {
+    margin-top: 0.5rem;
+
+    > .hint {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<div class="po-profile-dialog-content">
+  {{#if recommendation}}
+  <div class="po-recommendation">
+    <i class="fa-solid fa-triangle-exclamation" inert></i>
+    <p>{{recommendation.message}}</p>
+  </div>
+  {{/if}}
+
+  <p class="po-intro">{{localize "PO.ProfileDialog.Intro"}}</p>
+
+  <div class="po-profile-options">
+    {{#each profiles}}
+    <button type="button" class="po-profile-card{{#if current}} current{{/if}}{{#if recommended}} recommended{{/if}}"
+            data-action="chooseProfile" data-profile="{{key}}">
+      <span class="po-profile-label">
+        {{label}}
+        {{#if current}}<span class="po-badge">{{localize "PO.ProfileDialog.CurrentBadge"}}</span>{{/if}}
+        {{#if recommended}}<span class="po-badge highlight">{{localize "PO.ProfileDialog.RecommendedBadge"}}</span>{{/if}}
+      </span>
+      <span class="po-profile-description">{{description}}</span>
+    </button>
+    {{/each}}
+  </div>
+
+  <p class="po-current-note">{{localize "PO.ProfileDialog.Current"}} <strong>{{currentLabel}}</strong></p>
+
+  <footer class="po-dialog-footer">
+    {{#if recommendation}}
+    <button type="button" data-action="snoozeFps">
+      <i class="fa-solid fa-clock" inert></i>{{localize "PO.ProfileDialog.NotNow"}}
+    </button>
+    <button type="button" data-action="neverShowFps">
+      <i class="fa-solid fa-bell-slash" inert></i>{{localize "PO.ProfileDialog.NeverShow"}}
+    </button>
+    {{else}}
+    <button type="button" data-action="keepCurrent">
+      <i class="fa-solid fa-rotate-left" inert></i>{{localize "PO.ProfileDialog.KeepCurrent"}}
+    </button>
+    {{/if}}
+  </footer>
+</div>

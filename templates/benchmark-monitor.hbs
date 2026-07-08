@@ -1,0 +1,24 @@
+<div class="po-monitor-content">
+  <div class="po-toolbar">
+    <p class="hint">{{localize "PO.Monitor.Hint"}}</p>
+    <button type="button" data-action="clearData">
+      <i class="fa-solid fa-trash" inert></i>{{localize "PO.Monitor.Clear"}}
+    </button>
+  </div>
+
+  <ul class="po-legend">
+    {{#each players}}
+    <li data-user-id="{{id}}">
+      <span class="po-chip" style="background: {{color}}"></span>
+      <span class="po-legend-name">{{name}}</span>
+      <span class="po-legend-fps">{{fps}}</span>
+    </li>
+    {{/each}}
+  </ul>
+
+  <div class="po-chart">
+    <canvas></canvas>
+    <div class="po-chart-tooltip" hidden></div>
+    {{#unless hasData}}<p class="po-empty">{{localize "PO.Monitor.Empty"}}</p>{{/unless}}
+  </div>
+</div>

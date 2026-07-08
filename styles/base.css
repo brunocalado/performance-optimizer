@@ -1,0 +1,67 @@
+/*!
+ * Performance Optimizer
+ * Copyright (c) 2026 https://github.com/brunocalado
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3.
+ */
+
+/* Module-wide custom properties and pieces shared across Applications:
+   color chips, tags/badges and the toolbar row. */
+.performance-optimizer {
+  --performance-optimizer-accent: var(--color-warm-2, #c9593f);
+  --performance-optimizer-border: var(--color-border-light-2, #7a7971);
+
+  .po-chip {
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
+    border-radius: 50%;
+    border: 1px solid var(--performance-optimizer-border);
+    flex: none;
+  }
+
+  .po-tag,
+  .po-badge {
+    font-size: var(--font-size-11, 0.6875rem);
+    line-height: 1.4;
+    padding: 0 0.4em;
+    border: 1px solid var(--performance-optimizer-border);
+    border-radius: 3px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+
+    &.highlight {
+      color: var(--color-text-primary);
+      border-color: var(--performance-optimizer-accent);
+    }
+  }
+
+  .po-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    > button {
+      flex: 1;
+    }
+
+    > .hint {
+      flex: 1;
+      margin: 0;
+    }
+  }
+
+  /* Icon spacing for every action button rendered by this module. */
+  button > i {
+    margin-right: 0.35em;
+  }
+
+  .po-empty {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin: 0.5rem 0;
+  }
+}

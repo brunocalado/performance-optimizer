@@ -1,0 +1,77 @@
+<div class="po-profile-defaults-content {{#if useTabs}}po-has-tabs{{/if}}">
+  <p class="po-intro">{{localize "PO.ProfileDefaults.Intro"}}</p>
+
+  {{#if useTabs}}
+  <nav class="po-tabs tabs" data-group="primary">
+    {{#each sections}}
+    <a class="item {{#if @first}}active{{/if}}" data-tab="{{id}}">
+      <i class="{{icon}}" inert></i> {{tabLabel}}
+    </a>
+    {{/each}}
+  </nav>
+  {{/if}}
+
+  {{#each sections}}
+  <section class="po-tab-panel {{#if @first}}active{{/if}}" data-tab="{{id}}">
+    <fieldset class="po-profile-section">
+      <legend>{{legend}}</legend>
+      {{#if hint}}<p class="hint">{{hint}}</p>{{/if}}
+      <table class="po-profile-table">
+        <thead>
+          <tr>
+            <th class="po-field-label"></th>
+            {{#each @root.profiles}}
+            <th class="po-col-{{key}}">{{label}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each rows}}
+          <tr>
+            <td class="po-field-label">
+              <span class="po-label-text">{{label}}</span>
+              {{#if tooltip}}
+              <i class="fa-solid fa-circle-question po-help" data-tooltip="{{tooltip}}" tabindex="0"></i>
+              {{/if}}
+            </td>
+            {{#each cells}}
+            <td class="po-col-{{profileKey}}">
+              {{#if isCheckbox}}
+              <input type="checkbox" name="{{name}}" {{checked value}}>
+              {{/if}}
+              {{#if isNumber}}
+              <input type="number" name="{{name}}" value="{{value}}" min="{{min}}" max="{{max}}" step="{{step}}">
+              {{/if}}
+              {{#if isSelect}}
+              <select name="{{name}}">
+                {{#each choices}}
+                <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+                {{/each}}
+              </select>
+              {{/if}}
+            </td>
+            {{/each}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </fieldset>
+  </section>
+  {{/each}}
+
+  {{#unless dsnActive}}
+  <p class="hint po-dsn-inactive">
+    <i class="fa-solid fa-dice-d20" inert></i>
+    {{localize "PO.ProfileDefaults.DsnInactive"}}
+  </p>
+  {{/unless}}
+
+  <footer class="form-footer">
+    <button type="button" data-action="resetDefaults">
+      <i class="fa-solid fa-rotate-left" inert></i>{{localize "PO.ProfileDefaults.Reset"}}
+    </button>
+    <button type="submit">
+      <i class="fa-solid fa-floppy-disk" inert></i>{{localize "PO.ProfileDefaults.Save"}}
+    </button>
+  </footer>
+</div>

@@ -1,0 +1,85 @@
+/*!
+ * Performance Optimizer
+ * Copyright (c) 2026 https://github.com/brunocalado
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3.
+ */
+
+.performance-optimizer.po-profile-dialog {
+
+  .po-intro {
+    margin: 0 0 0.75rem;
+  }
+
+  .po-recommendation {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--performance-optimizer-accent);
+    border-radius: 4px;
+
+    > i {
+      color: var(--performance-optimizer-accent);
+      font-size: var(--font-size-20, 1.25rem);
+    }
+
+    > p {
+      margin: 0;
+    }
+  }
+
+  .po-profile-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .po-profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+
+    &.current {
+      border-color: var(--color-text-primary);
+    }
+
+    &.recommended {
+      border-color: var(--performance-optimizer-accent);
+      box-shadow: 0 0 4px var(--performance-optimizer-accent);
+    }
+
+    .po-profile-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-weight: bold;
+    }
+
+    .po-profile-description {
+      font-size: var(--font-size-12, 0.75rem);
+      color: var(--color-text-secondary);
+    }
+  }
+
+  .po-current-note {
+    margin: 0.75rem 0 0.5rem;
+    font-size: var(--font-size-12, 0.75rem);
+    color: var(--color-text-secondary);
+  }
+
+  .po-dialog-footer {
+    display: flex;
+    gap: 0.5rem;
+
+    > button {
+      flex: 1;
+    }
+  }
+}

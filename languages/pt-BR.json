@@ -1,0 +1,164 @@
+{
+  "PO": {
+    "Profiles": {
+      "low": {
+        "Label": "Baixo",
+        "Description": "Para computadores muito antigos. Efeitos visuais mínimos, limitado a 10 FPS."
+      },
+      "medium": {
+        "Label": "Médio",
+        "Description": "Para computadores medianos. Equilíbrio entre qualidade e desempenho, limitado a 30 FPS."
+      },
+      "high": {
+        "Label": "Alto",
+        "Description": "Para computadores modernos. Qualidade máxima, limitado a 60 FPS."
+      },
+      "custom": {
+        "Label": "Personalizado"
+      }
+    },
+    "ProfileDialog": {
+      "Title": "Perfil de Desempenho",
+      "Intro": "Quão potente é o computador em que você está jogando? Escolha a opção que melhor o descreve e as configurações gráficas serão ajustadas automaticamente.",
+      "Current": "Perfil atual:",
+      "CurrentBadge": "Atual",
+      "RecommendedBadge": "Recomendado",
+      "Recommendation": "Sua taxa média de quadros nos últimos dois minutos foi de {fps} FPS. Mudar para o perfil {profile} deve deixar o jogo mais fluido.",
+      "NotNow": "Agora Não",
+      "NeverShow": "Não Mostrar Novamente",
+      "KeepCurrent": "Manter Minhas Configurações"
+    },
+    "GMPanel": {
+      "Title": "Performance Optimizer — Desempenho dos Jogadores",
+      "User": "Usuário",
+      "Status": "Perfil",
+      "Actions": "Ações",
+      "SendAll": "Enviar para Todos",
+      "Refresh": "Atualizar",
+      "Offline": "Offline",
+      "You": "Você",
+      "Resend": "Enviar Diálogo",
+      "NoUsers": "Não há outros usuários neste mundo.",
+      "SetProfileTooltip": "Aplicar este perfil no cliente do jogador",
+      "UnknownTooltip": "As configurações atuais deste usuário ainda não foram informadas",
+      "CustomTooltip": "As configurações deste usuário não correspondem a nenhum dos perfis padrão.",
+      "ProfileSent": "O perfil {profile} foi aplicado no cliente de {user}.",
+      "ProfileFailed": "Não foi possível aplicar o perfil no cliente de {user}.",
+      "DialogSent": "O diálogo de perfil foi enviado para {user}.",
+      "DialogFailed": "Não foi possível enviar o diálogo de perfil para {user}.",
+      "DialogSentAll": "O diálogo de perfil foi enviado para {count} usuário(s) conectado(s).",
+      "Benchmark": {
+        "Heading": "Benchmark",
+        "Hint": "Ative uma cena padronizada de teste de estresse para todos os jogadores conectados e acompanhe a taxa de quadros ao vivo no monitor de FPS.",
+        "Activate": "Ativar Cena de Benchmark",
+        "Monitor": "Abrir Monitor de FPS"
+      }
+    },
+    "Monitor": {
+      "Title": "Monitor de FPS do Benchmark",
+      "Hint": "Taxa de quadros informada por cada cliente conectado enquanto estiver na cena de benchmark, atualizada a cada 5 segundos.",
+      "Clear": "Limpar Dados",
+      "Empty": "Ainda não há dados de FPS. Os jogadores enviam automaticamente enquanto visualizam a cena de benchmark.",
+      "Fps": "FPS"
+    },
+    "Benchmark": {
+      "SceneCreated": "A cena de benchmark foi criada.",
+      "Activated": "A cena de benchmark está ativa para todos os jogadores."
+    },
+    "Notifications": {
+      "ProfileApplied": "Perfil de desempenho alterado para {profile}."
+    },
+    "ProfileDefaults": {
+      "Title": "Padrões dos Perfis",
+      "Intro": "Defina as configurações que cada perfil de desempenho aplica quando um jogador o escolhe. As mudanças afetam todas as próximas aplicações de perfil neste mundo.",
+      "CoreSection": "Configurações Gráficas do Foundry",
+      "DsnSection": "Dice So Nice — Desempenho dos Dados 3D",
+      "DsnHint": "Estas opções determinam o custo de renderização dos dados 3D. O antialiasing MSAA exige WebGL2; clientes sem suporte usam SMAA automaticamente.",
+      "DsnInactive": "O Dice So Nice não está ativo neste mundo. As opções de desempenho dele aparecerão aqui, e serão gerenciadas pelos perfis, assim que for ativado.",
+      "Save": "Salvar Perfis",
+      "Reset": "Restaurar Padrão",
+      "ResetTitle": "Restaurar Padrões dos Perfis",
+      "ResetContent": "Restaurar os três perfis para as configurações padrão? Suas personalizações serão perdidas.",
+      "Saved": "Padrões dos perfis salvos.",
+      "ResetDone": "Padrões dos perfis restaurados.",
+      "Tabs": {
+        "core": "Foundry",
+        "dsn": "Dice So Nice"
+      },
+      "Hints": {
+        "core": {
+          "performanceMode": "Predefinição geral de renderização do canvas. Modos mais altos ativam mais recursos visuais com maior custo de GPU.",
+          "maxFPS": "Limite máximo de quadros desenhados por segundo. Limites menores aliviam a GPU e a CPU e reduzem o aquecimento.",
+          "pixelRatioResolutionScaling": "Renderiza o canvas na densidade nativa de pixels da tela para imagens mais nítidas, com maior custo de GPU. Desative em hardware fraco.",
+          "photosensitiveMode": "Suprime efeitos piscantes e estroboscópicos para reduzir o risco de desencadear reações fotossensíveis.",
+          "mipmap": "Pré-calcula cópias reduzidas das texturas para uma renderização mais suave e barata ao afastar o zoom. Usa mais memória de vídeo.",
+          "visionAnimation": "Anima mudanças na visão dos tokens e na névoa de guerra. Desative para reduzir o trabalho de renderização.",
+          "lightAnimation": "Anima efeitos de luz dinâmica, como tremulação e pulsação. Desative para economizar GPU em cenas com muitas luzes."
+        },
+        "dsn": {
+          "imageQuality": "Resolução geral de texturas e renderização dos dados 3D.",
+          "shadowQuality": "Resolução das sombras projetadas pelos dados. Configurações mais altas custam mais GPU.",
+          "antialiasing": "Técnica de suavização de bordas dos dados. O MSAA tem o melhor visual, mas exige WebGL2; o SMAA é uma alternativa mais leve.",
+          "bumpMapping": "Adiciona detalhes de relevo à superfície das faces dos dados. Custo de GPU um pouco maior.",
+          "glow": "Ativa efeitos de brilho e bloom ao redor de dados emissivos. Mais exigente para a GPU.",
+          "useHighDPI": "Renderiza os dados em alta resolução (DPI) em telas retina para bordas mais nítidas, com maior custo.",
+          "persistentDiceOutlines": "Mantém a renderização do contorno dos dados após eles pararem. Pequeno custo contínuo de renderização.",
+          "advancedGlass": "Usa um material fisicamente realista, mais custoso, para dados de vidro e translúcidos."
+        }
+      },
+      "Fields": {
+        "core": {
+          "performanceMode": "Modo de Desempenho",
+          "maxFPS": "FPS Máximo",
+          "pixelRatioResolutionScaling": "Escala de Pixels do Hardware",
+          "photosensitiveMode": "Modo Fotossensível",
+          "mipmap": "Mipmapping de Texturas",
+          "visionAnimation": "Animação de Visão",
+          "lightAnimation": "Animação de Iluminação"
+        },
+        "dsn": {
+          "imageQuality": "Qualidade de Imagem",
+          "shadowQuality": "Qualidade das Sombras",
+          "antialiasing": "Antialiasing",
+          "bumpMapping": "Bump Mapping",
+          "glow": "Efeitos de Brilho",
+          "useHighDPI": "Renderização em Alto DPI",
+          "persistentDiceOutlines": "Contorno de Dados Persistentes",
+          "advancedGlass": "Material de Vidro Avançado"
+        }
+      },
+      "Choices": {
+        "none": "Nenhum",
+        "low": "Baixa",
+        "medium": "Média",
+        "high": "Alta",
+        "smaa": "SMAA (rápido)",
+        "msaa": "MSAA (qualidade)",
+        "pmLow": "Baixo",
+        "pmMed": "Médio",
+        "pmHigh": "Alto",
+        "pmMax": "Máximo"
+      }
+    },
+    "Settings": {
+      "GMPanel": {
+        "Name": "Painel de Desempenho dos Jogadores",
+        "Label": "Abrir Painel",
+        "Hint": "Veja e altere o perfil de desempenho de cada jogador, reenvie o diálogo de perfil e execute o benchmark."
+      },
+      "ProfileDefaults": {
+        "Name": "Padrões dos Perfis",
+        "Label": "Editar Perfis",
+        "Hint": "Personalize as configurações aplicadas pelos perfis Baixo, Médio e Alto, incluindo as opções de desempenho do Dice So Nice quando esse módulo estiver ativo."
+      },
+      "AutoFpsCheck": {
+        "Name": "Detecção Automática de FPS",
+        "Hint": "Mede periodicamente sua taxa de quadros e recomenda um perfil mais leve quando o jogo estiver consistentemente lento."
+      },
+      "FpsNeverShow": {
+        "Name": "Silenciar Recomendações de FPS",
+        "Hint": "Nunca mostrar a recomendação de perfil por FPS baixo neste cliente."
+      }
+    }
+  }
+}

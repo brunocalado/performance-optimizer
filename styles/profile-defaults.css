@@ -1,0 +1,138 @@
+/*!
+ * Performance Optimizer
+ * Copyright (c) 2026 https://github.com/brunocalado
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3.
+ */
+
+.performance-optimizer.po-profile-defaults {
+
+  /* Per-profile column tints: weakest (low) to strongest (high). Kept as
+     translucent overlays so they read the same over light and dark themes. */
+  --po-col-low-bg: rgba(211, 84, 71, 0.12);
+  --po-col-low-head: rgba(211, 84, 71, 0.28);
+  --po-col-medium-bg: rgba(224, 168, 60, 0.12);
+  --po-col-medium-head: rgba(224, 168, 60, 0.28);
+  --po-col-high-bg: rgba(94, 186, 116, 0.12);
+  --po-col-high-head: rgba(94, 186, 116, 0.28);
+
+  .po-intro {
+    margin-top: 0;
+  }
+
+  /* Only the inactive tab is hidden; without tabs every panel stays visible. */
+  .po-has-tabs .po-tab-panel:not(.active) {
+    display: none;
+  }
+
+  .po-tabs {
+    margin-bottom: 0.5rem;
+
+    .item {
+      padding: 0.25rem 0.6rem;
+    }
+  }
+
+  .po-profile-section {
+    margin-bottom: 0.75rem;
+
+    > .hint {
+      margin-top: 0;
+    }
+  }
+
+  .po-profile-table {
+    margin: 0;
+    border: none;
+    background: none;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    th {
+      text-align: center;
+      padding: 0.25rem 0.35rem;
+    }
+
+    td {
+      text-align: center;
+      vertical-align: middle;
+      padding: 0.2rem 0.35rem;
+    }
+
+    /* The first column holds the setting name; every other column is an input. */
+    .po-field-label {
+      text-align: left;
+      white-space: nowrap;
+      background: none;
+    }
+
+    /* Column highlights. Header cells get a stronger tint than body cells. */
+    .po-col-low {
+      background: var(--po-col-low-bg);
+    }
+
+    .po-col-medium {
+      background: var(--po-col-medium-bg);
+    }
+
+    .po-col-high {
+      background: var(--po-col-high-bg);
+    }
+
+    thead .po-col-low {
+      background: var(--po-col-low-head);
+    }
+
+    thead .po-col-medium {
+      background: var(--po-col-medium-head);
+    }
+
+    thead .po-col-high {
+      background: var(--po-col-high-head);
+    }
+
+    /* Round the top and bottom of each tinted column for a grouped look. */
+    thead th:first-of-type ~ th {
+      border-radius: 4px 4px 0 0;
+    }
+
+    tbody tr:last-child td.po-col-low,
+    tbody tr:last-child td.po-col-medium,
+    tbody tr:last-child td.po-col-high {
+      border-radius: 0 0 4px 4px;
+    }
+
+    input[type="number"] {
+      width: 4.5rem;
+      text-align: center;
+    }
+
+    select {
+      width: 100%;
+      min-width: 6rem;
+    }
+  }
+
+  /* Inline "?" affordance next to each setting name; reveals a Foundry tooltip. */
+  .po-field-label {
+    .po-label-text {
+      margin-right: 0.35em;
+    }
+
+    .po-help {
+      color: var(--color-text-secondary);
+      cursor: help;
+      font-size: 0.85em;
+
+      &:hover,
+      &:focus {
+        color: var(--performance-optimizer-accent);
+      }
+    }
+  }
+
+  .po-dsn-inactive > i {
+    margin-right: 0.35em;
+  }
+}

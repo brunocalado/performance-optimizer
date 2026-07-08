@@ -1,0 +1,46 @@
+{
+  "id": "performance-optimizer",
+  "title": "Performance Optimizer",
+  "version": "0.0.1",
+  "description": "Quality-of-life performance tuning for players on low-end computers: pick a Low/Medium/High profile on login, let the GM manage everyone's graphics settings remotely, get automatic low-FPS recommendations, and stress-test machines with a standardized benchmark scene and live FPS monitor.",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Mestre Digital",
+      "url": "https://www.youtube.com/@mestredigital",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/base.css",
+    "styles/profile-dialog.css",
+    "styles/gm-panel.css",
+    "styles/benchmark-monitor.css",
+    "styles/profile-defaults.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "languages/pt-BR.json",
+      "flags": {}
+    }
+  ],
+  "socket": true,
+  "url": "https://github.com/brunocalado/performance-optimizer",
+  "manifest": "https://raw.githubusercontent.com/brunocalado/performance-optimizer/main/module.json",
+  "download": "https://codeload.github.com/brunocalado/performance-optimizer/zip/main",
+  "flags": {}
+}

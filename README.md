@@ -26,6 +26,10 @@ The first time each person logs in — players **and** the GM — a simple dialo
 
 **For Players:** Just answer the one-time popup honestly, and the module handles the rest. You can revisit your choice anytime from the module settings.
 
+![Select Profile](docs/select-profile.webp)
+
+*The initial profile selection dialog.*
+
 ![Module settings](docs/settings.webp)
 
 *From the module settings, anyone can reopen the profile chooser or turn the automatic FPS tips on and off.*

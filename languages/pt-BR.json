@@ -3,15 +3,21 @@
     "Profiles": {
       "low": {
         "Label": "Baixo",
-        "Description": "Para computadores muito antigos. Efeitos visuais mínimos, limitado a 10 FPS."
+        "Title": "Computadores Antigos",
+        "Tagline": "Visuais Mínimos",
+        "Description": "Prioriza a fluidez desativando sombras, luzes dinâmicas complexas, névoa e animações de mapa."
       },
       "medium": {
         "Label": "Médio",
-        "Description": "Para computadores medianos. Equilíbrio entre qualidade e desempenho, limitado a 30 FPS."
+        "Title": "Computadores Medianos",
+        "Tagline": "Qualidade Equilibrada",
+        "Description": "Mantém uma boa qualidade visual aplicando otimizações em segundo plano para garantir uma experiência estável na mesa."
       },
       "high": {
         "Label": "Alto",
-        "Description": "Para computadores modernos. Qualidade máxima, limitado a 60 FPS."
+        "Title": "Computadores Modernos",
+        "Tagline": "Fidelidade Máxima",
+        "Description": "Habilita limites de quadros mais altos, sombras avançadas, efeitos climáticos completos e limites de motor mais flexíveis."
       },
       "custom": {
         "Label": "Personalizado"
@@ -21,8 +27,6 @@
       "Title": "Perfil de Desempenho",
       "Intro": "Quão potente é o computador em que você está jogando? Escolha a opção que melhor o descreve e as configurações gráficas serão ajustadas automaticamente.",
       "Current": "Perfil atual:",
-      "CurrentBadge": "Atual",
-      "RecommendedBadge": "Recomendado",
       "Recommendation": "Sua taxa média de quadros nos últimos dois minutos foi de {fps} FPS. Mudar para o perfil {profile} deve deixar o jogo mais fluido.",
       "NotNow": "Agora Não",
       "NeverShow": "Não Mostrar Novamente",

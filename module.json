@@ -1,7 +1,7 @@
 {
   "id": "performance-optimizer",
   "title": "Performance Optimizer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Quality-of-life performance tuning for players on low-end computers: pick a Low/Medium/High profile on login, let the GM manage everyone's graphics settings remotely, get automatic low-FPS recommendations, and stress-test machines with a standardized benchmark scene and live FPS monitor.",
   "compatibility": {
     "minimum": "14",

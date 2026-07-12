@@ -10,6 +10,7 @@ import {
   MODULE_ID,
   SETTINGS,
   PROFILE_ORDER,
+  PROFILE_ICONS,
   TEMPLATES,
   FPS_TIMING,
   L10N_PREFIX
@@ -53,7 +54,7 @@ export default class ProfileDialog extends HandlebarsApplicationMixin(Applicatio
       icon: "fa-solid fa-gauge-high",
       contentClasses: ["standard-form"]
     },
-    position: { width: 460 },
+    position: { width: 640 },
     actions: {
       chooseProfile: this.prototype._onChooseProfile,
       keepCurrent: this.prototype._onKeepCurrent,
@@ -93,7 +94,9 @@ export default class ProfileDialog extends HandlebarsApplicationMixin(Applicatio
     const rec = this.#recommendation;
     context.profiles = PROFILE_ORDER.map(key => ({
       key,
-      label: localizeProfile(key),
+      icon: PROFILE_ICONS[key],
+      title: game.i18n.localize(`${L10N_PREFIX}.Profiles.${key}.Title`),
+      tagline: game.i18n.localize(`${L10N_PREFIX}.Profiles.${key}.Tagline`),
       description: game.i18n.localize(`${L10N_PREFIX}.Profiles.${key}.Description`),
       current: key === current,
       recommended: key === rec?.target

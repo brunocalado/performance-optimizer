@@ -8,15 +8,6 @@
 
 .performance-optimizer.po-profile-defaults {
 
-  /* Per-profile column tints: weakest (low) to strongest (high). Kept as
-     translucent overlays so they read the same over light and dark themes. */
-  --po-col-low-bg: rgba(211, 84, 71, 0.12);
-  --po-col-low-head: rgba(211, 84, 71, 0.28);
-  --po-col-medium-bg: rgba(224, 168, 60, 0.12);
-  --po-col-medium-head: rgba(224, 168, 60, 0.28);
-  --po-col-high-bg: rgba(94, 186, 116, 0.12);
-  --po-col-high-head: rgba(94, 186, 116, 0.28);
-
   .po-intro {
     margin-top: 0;
   }

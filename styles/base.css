@@ -7,10 +7,25 @@
  */
 
 /* Module-wide custom properties and pieces shared across Applications:
-   color chips, tags/badges and the toolbar row. */
+   color chips, tags and the toolbar row. */
 .performance-optimizer {
   --performance-optimizer-accent: var(--color-warm-2, #c9593f);
   --performance-optimizer-border: var(--color-border-light-2, #7a7971);
+
+  /* Per-profile tier tints: weakest (low) to strongest (high). "-bg"/"-head"
+     are translucent overlays so they read the same over light and dark
+     themes; "-text" is a lightened, fully opaque tone kept legible against
+     those dark overlays. Shared by the profile chooser and the
+     profile-defaults editor. */
+  --po-col-low-bg: rgba(211, 84, 71, 0.12);
+  --po-col-low-head: rgba(211, 84, 71, 0.28);
+  --po-col-low-text: rgb(232, 147, 138);
+  --po-col-medium-bg: rgba(224, 168, 60, 0.12);
+  --po-col-medium-head: rgba(224, 168, 60, 0.28);
+  --po-col-medium-text: rgb(240, 205, 130);
+  --po-col-high-bg: rgba(94, 186, 116, 0.12);
+  --po-col-high-head: rgba(94, 186, 116, 0.28);
+  --po-col-high-text: rgb(150, 214, 168);
 
   .po-chip {
     display: inline-block;
@@ -21,8 +36,7 @@
     flex: none;
   }
 
-  .po-tag,
-  .po-badge {
+  .po-tag {
     font-size: var(--font-size-11, 0.6875rem);
     line-height: 1.4;
     padding: 0 0.4em;

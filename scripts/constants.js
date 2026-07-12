@@ -264,6 +264,17 @@ export const PROFILE_FIELDS = {
 export const PROFILE_ORDER = ["low", "medium", "high"];
 
 /**
+ * FontAwesome 6 solid icon per profile, used by the profile chooser cards.
+ * The "gauge-simple-*" family reads directly as a low/medium/high dial.
+ * @type {Record<string, string>}
+ */
+export const PROFILE_ICONS = {
+  low: "fa-gauge-simple-low",
+  medium: "fa-gauge-simple",
+  high: "fa-gauge-simple-high"
+};
+
+/**
  * Sentinel profile key meaning "settings match none of the presets".
  * @type {string}
  */

@@ -3,15 +3,21 @@
     "Profiles": {
       "low": {
         "Label": "Low",
-        "Description": "For very old computers. Minimal visual effects, capped at 10 FPS."
+        "Title": "Older Computers",
+        "Tagline": "Minimal Visuals",
+        "Description": "Prioritizes smoothness by disabling shadows, complex dynamic lights, fog, and map animations."
       },
       "medium": {
         "Label": "Medium",
-        "Description": "For average computers. Balanced quality and performance, capped at 30 FPS."
+        "Title": "Average Computers",
+        "Tagline": "Balanced Quality",
+        "Description": "Maintains good visuals while applying background optimizations to ensure a stable tabletop experience."
       },
       "high": {
         "Label": "High",
-        "Description": "For modern computers. Maximum quality, capped at 60 FPS."
+        "Title": "Modern Computers",
+        "Tagline": "Maximum Fidelity",
+        "Description": "Enables higher framerate limits, advanced shadows, full weather effects rendering, and soft engine limits."
       },
       "custom": {
         "Label": "Custom"
@@ -21,8 +27,6 @@
       "Title": "Performance Profile",
       "Intro": "How powerful is the computer you are playing on? Pick the option that best describes it and the graphics settings will be adjusted automatically.",
       "Current": "Current profile:",
-      "CurrentBadge": "Current",
-      "RecommendedBadge": "Recommended",
       "Recommendation": "Your average framerate over the last two minutes was {fps} FPS. Switching to the {profile} profile should make the game smoother.",
       "NotNow": "Not Now",
       "NeverShow": "Don't Show Again",

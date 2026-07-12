@@ -12,10 +12,12 @@
     {{#each profiles}}
     <button type="button" class="po-profile-card{{#if current}} current{{/if}}{{#if recommended}} recommended{{/if}}"
             data-action="chooseProfile" data-profile="{{key}}">
-      <span class="po-profile-label">
-        {{label}}
-        {{#if current}}<span class="po-badge">{{localize "PO.ProfileDialog.CurrentBadge"}}</span>{{/if}}
-        {{#if recommended}}<span class="po-badge highlight">{{localize "PO.ProfileDialog.RecommendedBadge"}}</span>{{/if}}
+      <span class="po-profile-head">
+        <span class="po-profile-icon"><i class="fa-solid {{icon}}" inert></i></span>
+        <span class="po-profile-title">
+          <span class="po-profile-label">{{title}}</span>
+          <span class="po-profile-tagline">{{tagline}}</span>
+        </span>
       </span>
       <span class="po-profile-description">{{description}}</span>
     </button>

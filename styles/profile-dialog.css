@@ -32,19 +32,29 @@
   }
 
   .po-profile-options {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.6rem;
   }
 
   .po-profile-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
+    gap: 0.5rem;
     height: auto;
-    padding: 0.5rem 0.75rem;
+    padding: 0.75rem;
     text-align: left;
+    border-radius: 6px;
+    border-width: 2px;
+    background: var(--po-tier-bg);
+    transition: transform 100ms ease, background-color 100ms ease, box-shadow 100ms ease;
+
+    &:hover {
+      background: var(--po-tier-head);
+      transform: translateY(-2px);
+    }
 
     &.current {
       border-color: var(--color-text-primary);
@@ -52,14 +62,63 @@
 
     &.recommended {
       border-color: var(--performance-optimizer-accent);
-      box-shadow: 0 0 4px var(--performance-optimizer-accent);
+      box-shadow: 0 0 6px var(--performance-optimizer-accent);
+    }
+
+    &[data-profile="low"] {
+      --po-tier-bg: var(--po-col-low-bg);
+      --po-tier-head: var(--po-col-low-head);
+      --po-tier-text: var(--po-col-low-text);
+    }
+
+    &[data-profile="medium"] {
+      --po-tier-bg: var(--po-col-medium-bg);
+      --po-tier-head: var(--po-col-medium-head);
+      --po-tier-text: var(--po-col-medium-text);
+    }
+
+    &[data-profile="high"] {
+      --po-tier-bg: var(--po-col-high-bg);
+      --po-tier-head: var(--po-col-high-head);
+      --po-tier-text: var(--po-col-high-text);
+    }
+
+    .po-profile-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .po-profile-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      flex: none;
+      border-radius: 6px;
+      font-size: var(--font-size-16, 1rem);
+      color: var(--color-text-primary);
+      background: var(--po-tier-head);
+    }
+
+    .po-profile-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
     .po-profile-label {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
       font-weight: bold;
+      color: var(--color-text-primary);
+    }
+
+    .po-profile-tagline {
+      font-size: var(--font-size-11, 0.6875rem);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--po-tier-text);
     }
 
     .po-profile-description {

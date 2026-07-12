@@ -70,11 +70,14 @@ export default class FpsMonitor {
 
   /**
    * One-second tick: read the PIXI ticker, feed the benchmark stream and the
-   * auto-detection window. Hidden tabs are skipped entirely — browsers
-   * throttle rendering there, which would produce false low-FPS positives.
+   * auto-detection window. Hidden tabs and unfocused windows are skipped
+   * entirely — browsers throttle rendering in both cases (background tab
+   * throttling, or reduced GPU/compositor priority for an unfocused window
+   * while the user is in another OS-level app), which would produce false
+   * low-FPS positives.
    */
   #tick() {
-    if ( !canvas?.ready || document.visibilityState !== "visible" ) return;
+    if ( !canvas?.ready || document.visibilityState !== "visible" || !document.hasFocus() ) return;
     const fps = canvas.app.ticker.FPS;
     if ( !Number.isFinite(fps) ) return;
 

@@ -1,3 +1,7 @@
+# 0.0.3
+
+- Fixed a false "low FPS" profile-downgrade suggestion triggered while the browser window was unfocused (e.g. the user switched to another OS-level app) — the FPS monitor now skips sampling when the window lacks focus, in addition to the existing check for hidden tabs.
+
 # 0.0.2
 
 - Redesigned the profile selection dialog with icon-led cards, a title next to each icon, and a colored tagline (Minimal Visuals / Balanced Quality / Maximum Fidelity) for each profile.

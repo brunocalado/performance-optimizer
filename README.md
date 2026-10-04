@@ -56,7 +56,7 @@ Advanced GMs can also fine-tune exactly what each Low/Medium/High profile change
 Install via the Foundry VTT Module browser or use this manifest link:
 
 ```javascript
-https://raw.githubusercontent.com/brunocalado/performance-optimizer/main/module.json
+https://github.com/brunocalado/performance-optimizer/releases/latest/download/module.json
 ```
 
 ## ⚖️ Credits & License

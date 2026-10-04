@@ -163,8 +163,12 @@ export default class BenchmarkMonitor extends HandlebarsApplicationMixin(Applica
    */
   refresh() {
     if ( !this.rendered ) return;
+    // Full render when the legend's rows change or the empty-state message is
+    // still up: connected users are listed before they report, so the row
+    // count alone does not change when the first data arrives.
     const known = this.element.querySelectorAll(".po-legend [data-user-id]").length;
-    if ( known !== this.#playerRows().length ) return void this.render();
+    const staleEmpty = BenchmarkMonitor.#series.size && this.element.querySelector(".po-empty");
+    if ( (known !== this.#playerRows().length) || staleEmpty ) return void this.render();
     for ( const row of this.#playerRows() ) {
       const value = this.element.querySelector(`.po-legend [data-user-id="${row.id}"] .po-legend-fps`);
       if ( value ) value.textContent = row.fps;
@@ -271,10 +275,12 @@ export default class BenchmarkMonitor extends HandlebarsApplicationMixin(Applica
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
       ctx.beginPath();
+      // A stretch without samples (user left the scene, tab hidden) starts a
+      // new segment instead of drawing a slope through time with no data.
       series.forEach((s, i) => {
         const x = xOf(s.t);
         const y = yOf(Math.min(s.fps, domain.fpsMax));
-        if ( i === 0 ) ctx.moveTo(x, y);
+        if ( (i === 0) || ((s.t - series[i - 1].t) > FPS_TIMING.GAP_MS) ) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       });
       ctx.stroke();

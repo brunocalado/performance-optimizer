@@ -19,6 +19,13 @@ import BenchmarkMonitor from "./apps/benchmark-monitor.js";
  * Benchmark FPS sampler: while the benchmark scene is viewed, accumulates
  * per-second samples locally and ships them to GM clients in a single socket
  * batch every 5 seconds, keeping network chatter low.
+ *
+ * Each sample is the number of frames actually rendered during that second.
+ * PIXI's `ticker.FPS` is not used: it is `1000 / elapsedMS` of a single
+ * frame, and whenever the FPS cap does not evenly divide the display's
+ * refresh rate (a 60 cap on a 75 Hz monitor) consecutive frames alternate
+ * between one and two refresh intervals, so a once-per-second read bounces
+ * between e.g. 75 and 37 while the real rate holds steady near 60.
  */
 export default class FpsMonitor {
 
@@ -27,6 +34,20 @@ export default class FpsMonitor {
 
   /** @type {number|null} setInterval handle for the 1-second tick. */
   #timer = null;
+
+  /** @type {number} Frames rendered since the last tick. */
+  #frames = 0;
+
+  /** @type {number} `performance.now()` of the last tick, the start of the current count. */
+  #lastTick = performance.now();
+
+  /**
+   * Whether the previous tick was sampled too. A count that started while
+   * sampling was skipped (other scene, hidden tab, unfocused window, canvas
+   * redrawing) spans throttled frames, so it is discarded rather than charted.
+   * @type {boolean}
+   */
+  #primed = false;
 
   /** @type {{t: number, fps: number}[]} Benchmark samples pending a socket send. */
   #pendingBatch = [];
@@ -41,6 +62,9 @@ export default class FpsMonitor {
   static start() {
     if ( !FpsMonitor.#instance ) {
       FpsMonitor.#instance = new FpsMonitor();
+      // canvas.app is created once per session and never replaced, so one
+      // listener covers every scene. It is absent when the canvas is disabled.
+      canvas.app?.ticker.add(() => FpsMonitor.#instance.#frames++);
       FpsMonitor.#instance.#timer = setInterval(() => FpsMonitor.#instance.#tick(), FPS_TIMING.TICK_MS);
     }
     return FpsMonitor.#instance;
@@ -55,25 +79,30 @@ export default class FpsMonitor {
   }
 
   /**
-   * One-second tick: read the PIXI ticker while on the benchmark scene.
-   * Hidden tabs and unfocused windows are skipped entirely — browsers throttle
-   * rendering in both cases (background tab throttling, or reduced
-   * GPU/compositor priority for an unfocused window while the user is in
-   * another OS-level app), which would chart false low-FPS readings.
+   * One-second tick: turn the frames counted since the last tick into a
+   * frames-per-second sample while on the benchmark scene. Hidden tabs and
+   * unfocused windows are skipped entirely — browsers throttle rendering in
+   * both cases (background tab throttling, or reduced GPU/compositor priority
+   * for an unfocused window while the user is in another OS-level app), which
+   * would chart false low-FPS readings.
    */
   #tick() {
-    if ( !canvas?.ready || !FpsMonitor.onBenchmarkScene ) return;
-    if ( document.visibilityState !== "visible" || !document.hasFocus() ) return;
-    const fps = canvas.app.ticker.FPS;
-    if ( !Number.isFinite(fps) ) return;
-    this.#recordBenchmarkSample(fps);
+    const now = performance.now();
+    const fps = (this.#frames * 1000) / (now - this.#lastTick);
+    this.#frames = 0;
+    this.#lastTick = now;
+    const sampling = canvas?.ready && FpsMonitor.onBenchmarkScene
+      && (document.visibilityState === "visible") && document.hasFocus();
+    const primed = this.#primed;
+    this.#primed = sampling;
+    if ( sampling && primed ) this.#recordBenchmarkSample(fps);
   }
 
   /**
    * Queue a benchmark FPS sample and flush the batch to GM clients every
    * 5 seconds. GMs record their own samples directly, since module socket
    * emissions are not echoed back to the sender.
-   * @param {number} fps  The instantaneous framerate reading.
+   * @param {number} fps  Frames rendered per second over the last tick.
    */
   #recordBenchmarkSample(fps) {
     const now = Date.now();

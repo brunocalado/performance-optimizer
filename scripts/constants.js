@@ -286,8 +286,10 @@ export const CUSTOM_PROFILE = "custom";
  * @type {Record<string, number>}
  */
 export const FPS_TIMING = {
-  /** Interval between raw ticker reads (ms). */
+  /** Interval between benchmark FPS samples (ms). */
   TICK_MS: 1000,
+  /** Silence between two samples beyond which the monitor breaks the line (ms). */
+  GAP_MS: 3000,
   /** Interval between benchmark FPS socket batches (ms). */
   BENCHMARK_SEND_MS: 5000,
   /** Maximum FPS points retained per user in the benchmark monitor. */

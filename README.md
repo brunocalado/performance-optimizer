@@ -8,17 +8,16 @@ A Foundry VTT module that keeps every player's game running smoothly — no matt
 
 Some players run Foundry on a gaming rig, others on an old laptop that struggles to keep up. When a low-end machine tries to render the same visual effects as a high-end one, the result is a choppy, laggy game for that player — a **smooth** experience for some, a **sluggish, overheating** one for others.
 
-This module fixes that by letting **every player set their own performance level**, gives the **GM a remote control panel** to manage everyone's settings, and can **automatically detect and warn** players whose game is running too slow.
+This module fixes that by letting **every player set their own performance level**, and gives the **GM a remote control panel** to manage everyone's settings.
 
 ## ⚙️ How It Works
 
-The first time each person logs in — players **and** the GM — a simple dialog asks them to describe their computer as **Low**, **Medium**, or **High** power. Based on that answer, the module automatically adjusts the graphics settings for that one machine only — nobody else is affected. If the game later starts running poorly, the module can notice and suggest switching to a lighter setting, entirely on that person's own machine.
+The first time each person logs in — players **and** the GM — a simple dialog asks them to describe their computer as **Low**, **Medium**, or **High** power. Based on that answer, the module automatically adjusts the graphics settings for that one machine only — nobody else is affected. That choice sticks until the person picks a new profile from the module settings.
 
 ## 🕹️ Features
 
 - 🧑‍💻 **Performance Profiles** — Three ready-made presets (Low, Medium, High) that balance visual quality against speed. Each player picks the one that fits their computer.
 - 🎛️ **GM Control Panel** — The GM sees which profile everyone is using — including their own machine — and can apply a different profile to any user remotely, or re-open the profile dialog for one person or the whole table at once.
-- 📉 **Automatic Low-FPS Detection** — If someone's framerate stays low for a couple of minutes, the module gently suggests switching to a lighter profile. They can accept, dismiss for a day, or turn the suggestion off entirely.
 - 🏁 **Benchmark & Live FPS Monitor** — The GM can load a standardized test scene and watch everyone's framerate on a live chart, making it easy to compare performance and spot who needs a lighter profile.
 - 🎲 **Works With Dice So Nice** — If you use the 3D dice module, each profile also tunes the dice rendering quality, so fancy dice animations don't drag down weaker computers.
 
@@ -32,7 +31,7 @@ The first time each person logs in — players **and** the GM — a simple dialo
 
 ![Module settings](docs/settings.webp)
 
-*From the module settings, anyone can reopen the profile chooser or turn the automatic FPS tips on and off.*
+*From the module settings, anyone can reopen the profile chooser and pick a new profile.*
 
 **For Game Masters:** You get the same one-time popup for your own machine, and you appear in the panel alongside your players. Open the **Player Performance Panel** from the Foundry settings menu to see everyone's status, change anyone's profile remotely, or run the benchmark scene to test performance across the whole table.
 

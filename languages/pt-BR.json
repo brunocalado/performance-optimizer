@@ -27,9 +27,6 @@
       "Title": "Perfil de Desempenho",
       "Intro": "Quão potente é o computador em que você está jogando? Escolha a opção que melhor o descreve e as configurações gráficas serão ajustadas automaticamente.",
       "Current": "Perfil atual:",
-      "Recommendation": "Sua taxa média de quadros nos últimos dois minutos foi de {fps} FPS. Mudar para o perfil {profile} deve deixar o jogo mais fluido.",
-      "NotNow": "Agora Não",
-      "NeverShow": "Não Mostrar Novamente",
       "KeepCurrent": "Manter Minhas Configurações"
     },
     "GMPanel": {
@@ -145,6 +142,11 @@
       }
     },
     "Settings": {
+      "ProfileDialog": {
+        "Name": "Perfil de Desempenho",
+        "Label": "Escolher Perfil",
+        "Hint": "Reabre o seletor de perfil exibido no seu primeiro acesso para escolher um novo perfil de desempenho para este computador."
+      },
       "GMPanel": {
         "Name": "Painel de Desempenho dos Jogadores",
         "Label": "Abrir Painel",
@@ -154,14 +156,6 @@
         "Name": "Padrões dos Perfis",
         "Label": "Editar Perfis",
         "Hint": "Personalize as configurações aplicadas pelos perfis Baixo, Médio e Alto, incluindo as opções de desempenho do Dice So Nice quando esse módulo estiver ativo."
-      },
-      "AutoFpsCheck": {
-        "Name": "Detecção Automática de FPS",
-        "Hint": "Mede periodicamente sua taxa de quadros e recomenda um perfil mais leve quando o jogo estiver consistentemente lento."
-      },
-      "FpsNeverShow": {
-        "Name": "Silenciar Recomendações de FPS",
-        "Hint": "Nunca mostrar a recomendação de perfil por FPS baixo neste cliente."
       }
     }
   }

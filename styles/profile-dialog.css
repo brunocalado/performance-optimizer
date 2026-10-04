@@ -12,25 +12,6 @@
     margin: 0 0 0.75rem;
   }
 
-  .po-recommendation {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    margin-bottom: 0.75rem;
-    border: 1px solid var(--performance-optimizer-accent);
-    border-radius: 4px;
-
-    > i {
-      color: var(--performance-optimizer-accent);
-      font-size: var(--font-size-20, 1.25rem);
-    }
-
-    > p {
-      margin: 0;
-    }
-  }
-
   .po-profile-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -58,11 +39,6 @@
 
     &.current {
       border-color: var(--color-text-primary);
-    }
-
-    &.recommended {
-      border-color: var(--performance-optimizer-accent);
-      box-shadow: 0 0 6px var(--performance-optimizer-accent);
     }
 
     &[data-profile="low"] {

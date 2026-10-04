@@ -27,9 +27,6 @@
       "Title": "Performance Profile",
       "Intro": "How powerful is the computer you are playing on? Pick the option that best describes it and the graphics settings will be adjusted automatically.",
       "Current": "Current profile:",
-      "Recommendation": "Your average framerate over the last two minutes was {fps} FPS. Switching to the {profile} profile should make the game smoother.",
-      "NotNow": "Not Now",
-      "NeverShow": "Don't Show Again",
       "KeepCurrent": "Keep My Current Settings"
     },
     "GMPanel": {
@@ -145,6 +142,11 @@
       }
     },
     "Settings": {
+      "ProfileDialog": {
+        "Name": "Performance Profile",
+        "Label": "Choose Profile",
+        "Hint": "Reopen the profile chooser shown on your first login and pick a new performance profile for this computer."
+      },
       "GMPanel": {
         "Name": "Player Performance Panel",
         "Label": "Open Panel",
@@ -154,14 +156,6 @@
         "Name": "Profile Defaults",
         "Label": "Edit Profiles",
         "Hint": "Customize the settings applied by the Low, Medium and High performance profiles, including Dice So Nice performance options when that module is active."
-      },
-      "AutoFpsCheck": {
-        "Name": "Automatic FPS Detection",
-        "Hint": "Periodically measure your framerate and recommend a lighter profile when the game runs consistently slow."
-      },
-      "FpsNeverShow": {
-        "Name": "Mute FPS Recommendations",
-        "Hint": "Never show the low-FPS profile recommendation on this client."
       }
     }
   }

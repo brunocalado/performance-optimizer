@@ -6,7 +6,8 @@
  * it under the terms of the GNU General Public License version 3.
  */
 
-import { MODULE_ID, SETTINGS, GM_PANEL_MENU, PROFILE_DEFAULTS_MENU, L10N_PREFIX } from "./constants.js";
+import { MODULE_ID, SETTINGS, PROFILE_DIALOG_MENU, GM_PANEL_MENU, PROFILE_DEFAULTS_MENU, L10N_PREFIX } from "./constants.js";
+import ProfileDialog from "./apps/profile-dialog.js";
 import GMPanel from "./apps/gm-panel.js";
 import ProfileDefaults from "./apps/profile-defaults.js";
 
@@ -17,6 +18,17 @@ import ProfileDefaults from "./apps/profile-defaults.js";
  * from the "init" hook.
  */
 export function registerSettings() {
+
+  // Unrestricted, so GMs see it too — core has no option to hide a menu from
+  // them, and the GM picks a profile for their own machine like anyone else.
+  game.settings.registerMenu(MODULE_ID, PROFILE_DIALOG_MENU, {
+    name: `${L10N_PREFIX}.Settings.ProfileDialog.Name`,
+    label: `${L10N_PREFIX}.Settings.ProfileDialog.Label`,
+    hint: `${L10N_PREFIX}.Settings.ProfileDialog.Hint`,
+    icon: "fa-solid fa-gauge-high",
+    type: ProfileDialog,
+    restricted: false
+  });
 
   game.settings.registerMenu(MODULE_ID, GM_PANEL_MENU, {
     name: `${L10N_PREFIX}.Settings.GMPanel.Name`,
@@ -43,24 +55,6 @@ export function registerSettings() {
     default: {}
   });
 
-  game.settings.register(MODULE_ID, SETTINGS.AUTO_FPS_CHECK, {
-    name: `${L10N_PREFIX}.Settings.AutoFpsCheck.Name`,
-    hint: `${L10N_PREFIX}.Settings.AutoFpsCheck.Hint`,
-    scope: "client",
-    config: true,
-    type: Boolean,
-    default: true
-  });
-
-  game.settings.register(MODULE_ID, SETTINGS.FPS_NEVER_SHOW, {
-    name: `${L10N_PREFIX}.Settings.FpsNeverShow.Name`,
-    hint: `${L10N_PREFIX}.Settings.FpsNeverShow.Hint`,
-    scope: "client",
-    config: true,
-    type: Boolean,
-    default: false
-  });
-
   game.settings.register(MODULE_ID, SETTINGS.PROMPTED, {
     scope: "client",
     config: false,
@@ -73,12 +67,5 @@ export function registerSettings() {
     config: false,
     type: String,
     default: ""
-  });
-
-  game.settings.register(MODULE_ID, SETTINGS.FPS_SNOOZE_UNTIL, {
-    scope: "client",
-    config: false,
-    type: Number,
-    default: 0
   });
 }

@@ -36,15 +36,16 @@ export const SETTINGS = {
   PROMPTED: "prompted",
   /** Last profile key explicitly applied on this client ("low"|"medium"|"high"|""). */
   CHOSEN_PROFILE: "chosenProfile",
-  /** Enables the periodic FPS check that recommends a lighter profile. */
-  AUTO_FPS_CHECK: "autoFpsCheck",
-  /** Timestamp (ms) until which FPS recommendations are muted after a refusal. */
-  FPS_SNOOZE_UNTIL: "fpsSnoozeUntil",
-  /** Permanently hides FPS recommendations ("Don't show again"). */
-  FPS_NEVER_SHOW: "fpsNeverShow",
   /** World-scoped: GM customizations layered over DEFAULT_PROFILES. */
   PROFILE_OVERRIDES: "profileOverrides"
 };
+
+/**
+ * Settings-menu registration key for the profile chooser button, open to
+ * every user so anyone can revisit their first-login choice.
+ * @type {string}
+ */
+export const PROFILE_DIALOG_MENU = "profileDialogMenu";
 
 /**
  * Settings-menu registration key for the GM panel button.
@@ -281,30 +282,12 @@ export const PROFILE_ICONS = {
 export const CUSTOM_PROFILE = "custom";
 
 /**
- * FPS auto-detection rules: when the detected profile is the key and the
- * 2-minute average FPS falls below `threshold`, recommend `target`.
- * The "low" profile is intentionally absent — there is nothing weaker to offer.
- * @type {Record<string, {threshold: number, target: string}>}
- */
-export const FPS_RECOMMENDATION_RULES = {
-  high: { threshold: 30, target: "medium" },
-  medium: { threshold: 15, target: "low" },
-  [CUSTOM_PROFILE]: { threshold: 15, target: "low" }
-};
-
-/**
- * Timing constants for FPS sampling and benchmark reporting.
+ * Timing constants for benchmark FPS sampling and reporting.
  * @type {Record<string, number>}
  */
 export const FPS_TIMING = {
   /** Interval between raw ticker reads (ms). */
   TICK_MS: 1000,
-  /** Raw reads aggregated into one averaged sample (10 s buckets). */
-  READS_PER_SAMPLE: 10,
-  /** Averaged samples per evaluation window (12 x 10 s = 2 minutes). */
-  SAMPLES_PER_WINDOW: 12,
-  /** Mute duration after the user refuses a recommendation (24 h in ms). */
-  SNOOZE_MS: 24 * 60 * 60 * 1000,
   /** Interval between benchmark FPS socket batches (ms). */
   BENCHMARK_SEND_MS: 5000,
   /** Maximum FPS points retained per user in the benchmark monitor. */

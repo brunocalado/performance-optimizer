@@ -1,3 +1,12 @@
+# 0.0.4
+
+- Fixed the Benchmark FPS Monitor charting a framerate that bounced between two values (e.g. 75 and 37) while the game actually ran at a steady rate. It happened whenever the FPS cap didn't evenly divide the monitor's refresh rate, such as a 60 FPS cap on a 75 Hz screen. Each point is now the number of frames actually drawn in that second ([#1](https://github.com/brunocalado/performance-optimizer/issues/1)).
+- Fixed the "No FPS data yet" message staying on top of the chart after data arrived.
+- Fixed the chart drawing a line across periods with no data (for example, while someone was on another scene); the line now breaks and resumes.
+- Added a **Choose Profile** button to the module settings, available to every user, that reopens the profile chooser shown on first login.
+- Removed the automatic low-FPS detection, its mid-session recommendation popup, and the "Automatic FPS Detection" and "Mute FPS Recommendations" settings. Your profile now changes only when you or the GM change it.
+- New versions are now published as GitHub releases; the manifest URL changed, and existing installs pick up the new one automatically on update.
+
 # 0.0.3
 
 - Fixed a false "low FPS" profile-downgrade suggestion triggered while the browser window was unfocused (e.g. the user switched to another OS-level app) — the FPS monitor now skips sampling when the window lacks focus, in addition to the existing check for hidden tabs.
